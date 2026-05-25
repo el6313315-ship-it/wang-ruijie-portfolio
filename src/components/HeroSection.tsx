@@ -36,10 +36,7 @@ function MarqueeRow() {
 
 function ProgressBar({ className = "" }: { className?: string }) {
   return (
-    <motion.div
-      initial={{ width: 0 }}
-      animate={{ width: "100%" }}
-      transition={{ duration: 1.15, delay: 1.85, ease: [0.76, 0, 0.24, 1] }}
+    <div
       className={`h-[18px] overflow-hidden border border-[#050511] bg-[#fffcf0] ${className}`.trim()}
     >
       <motion.div
@@ -48,7 +45,7 @@ function ProgressBar({ className = "" }: { className?: string }) {
         transition={{ duration: 1.15, delay: 2.12, ease: [0.76, 0, 0.24, 1] }}
         className="h-full origin-left bg-[#050511]"
       />
-    </motion.div>
+    </div>
   );
 }
 
@@ -256,13 +253,13 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
               </motion.div>
             </div>
 
-            <ProgressBar className="hidden sm:block sm:w-[min(44vw,760px)]" />
+            <ProgressBar className="hidden sm:block sm:w-[min(36vw,620px)]" />
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 2.35 }}
-              className="grid w-full grid-cols-3 text-[11px] text-[#050511]/70 sm:w-[min(44vw,760px)]"
+              className="grid w-full grid-cols-3 text-[11px] text-[#050511]/70 sm:w-[min(36vw,620px)]"
             >
               <button onClick={() => onNavClick("work")} className="pixel-link justify-self-start" data-label="Research">
                 <span>Research</span>
