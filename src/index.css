@@ -280,14 +280,6 @@ textarea:focus-visible {
   margin: 0 0.01em;
 }
 
-.hero-name .pixel-mark span:nth-child(3) {
-  background: transparent;
-}
-
-.pixel-letter span:nth-child(3) {
-  background: transparent;
-}
-
 .hero-marquee {
   width: 100%;
   overflow: hidden;

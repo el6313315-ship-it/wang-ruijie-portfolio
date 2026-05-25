@@ -21,16 +21,8 @@ export function PixelMark({ className = "" }: PixelMarkProps) {
 
 export function PixelWord({ text, className = "" }: PixelWordProps) {
   return (
-    <span className={className} aria-label={text}>
-      {Array.from(text).map((char, index) =>
-        char.toLowerCase() === "o" ? (
-          <PixelMark key={`${char}-${index}`} className="pixel-letter" />
-        ) : (
-          <span key={`${char}-${index}`} aria-hidden="true">
-            {char}
-          </span>
-        )
-      )}
+    <span className={className}>
+      {text}
     </span>
   );
 }

@@ -256,13 +256,13 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
               </motion.div>
             </div>
 
-            <ProgressBar className="hidden sm:block sm:w-[min(50vw,760px)]" />
+            <ProgressBar className="hidden sm:block sm:w-[min(44vw,760px)]" />
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 2.35 }}
-              className="grid w-full grid-cols-3 text-[11px] text-[#050511]/70 sm:w-[min(50vw,760px)]"
+              className="grid w-full grid-cols-3 text-[11px] text-[#050511]/70 sm:w-[min(44vw,760px)]"
             >
               <button onClick={() => onNavClick("work")} className="pixel-link justify-self-start" data-label="Research">
                 <span>Research</span>
