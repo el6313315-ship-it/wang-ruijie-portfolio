@@ -1,7 +1,4 @@
 import { motion } from "motion/react";
-import academicSkillImage from "../assets/images/academic_skill_builder_1779527900530.png";
-import daibanImage from "../assets/images/aa99708e-0d23-44de-bc23-841c246626c4.png";
-import starlitImage from "../assets/images/8cbd7ddd-fe48-4345-8578-5e9e2a02d847.png";
 
 export default function WorkSection() {
   const projects = [
@@ -10,7 +7,7 @@ export default function WorkSection() {
       title: "星夜智能体平台",
       date: "2026.04 - 2026.05",
       tag: "AI Agent 产品设计",
-      image: starlitImage,
+      image: "/images/starlit_project.png",
       description: "多角色 AI 智能体产品，从 PRD 到 React Demo 完整落地",
       projectLink: "https://starlit-ai-companions.vercel.app/",
       prdLink: "https://icnldp32ly5r.feishu.cn/docx/S9Z2dVqtBoW11vxm3PBcesBOnXV?from=from_copylink",
@@ -21,7 +18,7 @@ export default function WorkSection() {
       title: "校园跑腿小程序",
       date: "2026.03 - 2026.04",
       tag: "独立产品负责人",
-      image: daibanImage,
+      image: "/images/daiban_project.png",
       description: "面向校园即时配送的 C 端拼单产品，独立完成全流程",
       projectLink: "https://daiban-preview.vercel.app/",
       prdLink: "https://icnldp32ly5r.feishu.cn/docx/IvmidATVNo43dxxmvJjcYEvenDb?from=from_copylink",
@@ -32,7 +29,7 @@ export default function WorkSection() {
       title: "课程论文写作 Skill",
       date: "2026.03 - 2026.05",
       tag: "项目实践",
-      image: academicSkillImage,
+      image: "/images/academic_skill_project.png",
       description: "论文改写规则框架，引导模型输出专业空间表达",
       projectLink: "https://github.com/el6313315-ship-it/humanize-landscape-academic-writing.git",
       labels: ["规则框架", "md 文件", "专业表达", "案例对照"]

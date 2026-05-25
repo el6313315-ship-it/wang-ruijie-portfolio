@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { Bot, Boxes, FileText, Workflow } from "lucide-react";
-import ruijiePortrait from "../assets/images/ruijie_new_portrait.png";
 
 export default function AboutAndSkillsSection() {
   const education = [
@@ -95,7 +94,7 @@ export default function AboutAndSkillsSection() {
             className="pixel-corners lg:col-span-5 w-full aspect-[3/4] relative overflow-hidden bg-surface border border-brand group transition-colors duration-500"
           >
             <img
-              src={ruijiePortrait}
+              src="/images/ruijie_new_portrait.png"
               alt="Ruijie Portrait"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover grayscale brightness-95 contrast-105 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-750"
