@@ -213,7 +213,7 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
           </motion.h1>
         </div>
 
-        <div className="grid flex-1 grid-cols-1 items-center px-5 sm:grid-cols-[120px_1fr_120px] sm:px-2 md:px-8">
+        <div className="grid flex-1 grid-cols-1 items-center px-5 sm:grid-cols-[180px_minmax(0,1fr)_180px] sm:px-4 md:grid-cols-[220px_minmax(0,1fr)_220px] md:px-8 lg:grid-cols-[260px_minmax(0,1fr)_260px]">
           <motion.div
             initial={{ x: -80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
