@@ -34,6 +34,24 @@ function MarqueeRow() {
   );
 }
 
+function ProgressBar({ className = "" }: { className?: string }) {
+  return (
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      transition={{ duration: 1.15, delay: 1.85, ease: [0.76, 0, 0.24, 1] }}
+      className={`h-[18px] overflow-hidden border border-[#050511] bg-[#fffcf0] ${className}`.trim()}
+    >
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 0.42 }}
+        transition={{ duration: 1.15, delay: 2.12, ease: [0.76, 0, 0.24, 1] }}
+        className="h-full origin-left bg-[#050511]"
+      />
+    </motion.div>
+  );
+}
+
 export default function HeroSection({ onNavClick }: HeroSectionProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [introLocked, setIntroLocked] = useState(true);
@@ -195,17 +213,17 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
           </motion.h1>
         </div>
 
-        <div className="grid flex-1 grid-cols-[72px_1fr_72px] items-center px-2 sm:grid-cols-[120px_1fr_120px] md:px-8">
+        <div className="grid flex-1 grid-cols-1 items-center px-5 sm:grid-cols-[120px_1fr_120px] sm:px-2 md:px-8">
           <motion.div
             initial={{ x: -80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 2.05, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans text-[62px] leading-none tracking-normal sm:text-[92px] md:text-[118px]"
+            className="hidden font-sans leading-none tracking-normal sm:block sm:text-[92px] md:text-[118px]"
           >
             AI
           </motion.div>
 
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex min-w-0 flex-col items-center gap-7 sm:gap-8">
             <motion.p
               initial={{ y: 18, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -214,29 +232,37 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
             >
               AI Product Manager · UX Prototyping · Research to Launch
             </motion.p>
-            <span className="inline-flex border border-[#222] px-[14px] py-[4px] text-[11px] uppercase tracking-[0.12em] shadow-[4px_4px_0_rgba(5,5,17,0.12)]">
+            <span className="max-w-full border border-[#222] px-[14px] py-[4px] text-center text-[11px] uppercase tracking-[0.12em] shadow-[4px_4px_0_rgba(5,5,17,0.12)]">
               求职意向：AI 产品实习　｜　可实习：四个月及以上
             </span>
 
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "min(50vw, 760px)" }}
-              transition={{ duration: 1.15, delay: 1.85, ease: [0.76, 0, 0.24, 1] }}
-              className="h-[18px] overflow-hidden border border-[#050511] bg-[#fffcf0]"
-            >
+            <div className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 sm:hidden">
               <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 0.42 }}
-                transition={{ duration: 1.15, delay: 2.12, ease: [0.76, 0, 0.24, 1] }}
-                className="h-full origin-left bg-[#050511]"
-              />
-            </motion.div>
+                initial={{ x: -40, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 2.05, ease: [0.16, 1, 0.3, 1] }}
+                className="font-sans text-[62px] leading-none tracking-normal"
+              >
+                AI
+              </motion.div>
+              <ProgressBar />
+              <motion.div
+                initial={{ x: 40, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 2.05, ease: [0.16, 1, 0.3, 1] }}
+                className="font-sans text-[62px] leading-none tracking-normal"
+              >
+                PM
+              </motion.div>
+            </div>
+
+            <ProgressBar className="hidden sm:block sm:w-[min(50vw,760px)]" />
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 2.35 }}
-              className="grid w-[min(50vw,760px)] grid-cols-3 text-[11px] text-[#050511]/70"
+              className="grid w-full grid-cols-3 text-[11px] text-[#050511]/70 sm:w-[min(50vw,760px)]"
             >
               <button onClick={() => onNavClick("work")} className="pixel-link justify-self-start" data-label="Research">
                 <span>Research</span>
@@ -252,7 +278,7 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
             initial={{ x: 80, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 2.05, ease: [0.16, 1, 0.3, 1] }}
-            className="justify-self-end font-sans text-[62px] leading-none tracking-normal sm:text-[92px] md:text-[118px]"
+            className="hidden justify-self-end font-sans leading-none tracking-normal sm:block sm:text-[92px] md:text-[118px]"
           >
             PM
           </motion.div>
