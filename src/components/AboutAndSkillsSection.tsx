@@ -8,14 +8,14 @@ export default function AboutAndSkillsSection() {
       degree: "艺术学 硕士",
       period: "2025.10 - 2028.07",
       note: "保研 / 研一",
-      awards: "保送研究生"
+      awards: ""
     },
     {
       school: "华北水利水电大学",
       degree: "环境设计 本科",
       period: "2021.09 - 2025.07",
       note: "GPA 4.32/5.0 / 专业第一",
-      awards: "GPA 4.32 / 5.0　专业第一　国家奖学金 · 省优秀毕业生 · 国家励志奖学金 · 省三好学生"
+      awards: "获得荣誉：国家奖学金 · 省优秀毕业生 · 国家励志奖学金 · 省三好学生 · 专业竞赛获国家级奖项15项、省级奖项23项"
     }
   ];
 
@@ -23,25 +23,21 @@ export default function AboutAndSkillsSection() {
     {
       id: "ai-product",
       title: "AI 产品设计",
-      desc: "AI Agent 场景拆解、角色设定、Prompt 边界与对话流程设计",
       icon: <Bot className="w-5 h-5" />
     },
     {
       id: "prd-prototype",
       title: "PRD 与原型表达",
-      desc: "需求梳理、用户流程、信息架构、功能矩阵与 Figma/FigJam 表达",
       icon: <FileText className="w-5 h-5" />
     },
     {
       id: "react-demo",
       title: "轻量应用搭建",
-      desc: "Vite + React Demo 落地，具备 GitHub、Vercel 基础部署经验",
       icon: <Boxes className="w-5 h-5" />
     },
     {
       id: "test-iteration",
       title: "测试与迭代",
-      desc: "使用 Playwright 做桌面端与移动端路径测试，定位并修复关键体验问题",
       icon: <Workflow className="w-5 h-5" />
     }
   ];
@@ -102,7 +98,7 @@ export default function AboutAndSkillsSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#f7f3e8]/20 to-transparent pointer-events-none" />
           </motion.div>
 
-          <div className="lg:col-span-7 flex flex-col gap-6 text-left">
+          <div className="lg:col-span-7 lg:-mt-1.5 lg:self-stretch flex flex-col gap-6 lg:justify-between text-left">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -136,13 +132,17 @@ export default function AboutAndSkillsSection() {
                     <div>
                       <p className="text-base sm:text-lg font-semibold text-brand">{edu.school}</p>
                       <p className="text-sm text-text-dim mt-0.5 font-light">{edu.degree}</p>
-                      <p className="mt-1 text-[12px] text-[#666] font-normal">{edu.awards}</p>
+                      {edu.awards && (
+                        <p className="mt-1 text-[12px] text-[#666] font-normal">{edu.awards}</p>
+                      )}
                     </div>
                     <div className="text-right">
                       <span className="text-[11px] font-mono text-surface font-bold uppercase tracking-wider bg-brand px-2 py-0.5 border border-brand">
                         {edu.period}
                       </span>
-                      <p className="text-[11px] font-mono text-text-dim mt-1 uppercase font-semibold">{edu.note}</p>
+                      {edu.note && (
+                        <p className="text-[11px] font-mono text-text-dim mt-1 uppercase font-semibold">{edu.note}</p>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -164,19 +164,14 @@ export default function AboutAndSkillsSection() {
                     key={item.id}
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                  className="pixel-card group min-h-[118px] flex items-start gap-4 p-4 bg-surface border border-brand duration-300 transition-[background-color,color,box-shadow,transform] hover:bg-brand hover:text-surface"
+                  className="pixel-card group flex items-center gap-4 p-4 bg-surface border border-brand duration-300 transition-[background-color,color,box-shadow,transform] hover:bg-brand hover:text-surface"
                   >
                     <div className="p-2 border border-brand text-brand group-hover:border-surface group-hover:text-surface transition-colors shrink-0">
                       {item.icon}
                     </div>
-                    <div>
-                      <h5 className="text-lg font-bold text-brand group-hover:text-surface transition-colors leading-tight">
-                        {item.title}
-                      </h5>
-                      <p className="text-sm text-text-dim group-hover:text-surface/75 mt-2 leading-relaxed font-light">
-                        {item.desc}
-                      </p>
-                    </div>
+                    <h5 className="text-lg font-bold text-brand group-hover:text-surface transition-colors leading-tight">
+                      {item.title}
+                    </h5>
                   </motion.div>
                 ))}
               </div>

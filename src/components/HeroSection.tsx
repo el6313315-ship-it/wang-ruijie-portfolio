@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 interface HeroSectionProps {
@@ -47,6 +47,30 @@ function MarqueeRow() {
 
 export default function HeroSection({ onNavClick }: HeroSectionProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [introLocked, setIntroLocked] = useState(true);
+
+  useEffect(() => {
+    if (!introLocked) return;
+
+    const html = document.documentElement;
+    const body = document.body;
+    const previousHtmlOverflow = html.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+    const previousHtmlOverscroll = html.style.overscrollBehavior;
+    const previousBodyOverscroll = body.style.overscrollBehavior;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    html.style.overscrollBehavior = "none";
+    body.style.overscrollBehavior = "none";
+
+    return () => {
+      html.style.overflow = previousHtmlOverflow;
+      body.style.overflow = previousBodyOverflow;
+      html.style.overscrollBehavior = previousHtmlOverscroll;
+      body.style.overscrollBehavior = previousBodyOverscroll;
+    };
+  }, [introLocked]);
 
   const titleTransition = {
     duration: 1.25,
@@ -68,33 +92,36 @@ export default function HeroSection({ onNavClick }: HeroSectionProps) {
         className="absolute left-0 right-0 top-[68vh] z-10 h-px origin-center bg-[#050511]"
       />
 
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ duration: 0.35, delay: 2.45 }}
-        className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center bg-[#fffcf0]"
-      >
+      {introLocked && (
         <motion.div
-          initial={{ height: 2, width: 2 }}
-          animate={{
-            height: [2, 22, 22],
-            width: [2, 2, 280],
-          }}
-          transition={{
-            duration: 1.45,
-            times: [0, 0.42, 1],
-            ease: [0.76, 0, 0.24, 1],
-          }}
-          className="relative overflow-hidden border border-[#050511] bg-[#fffcf0]"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 0.35, delay: 2.45 }}
+          onAnimationComplete={() => setIntroLocked(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#fffcf0]"
         >
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.05, delay: 1.1, ease: [0.76, 0, 0.24, 1] }}
-            className="absolute inset-y-0 left-0 w-full origin-left bg-[#050511]"
-          />
+            initial={{ height: 2, width: 2 }}
+            animate={{
+              height: [2, 22, 22],
+              width: [2, 2, 280],
+            }}
+            transition={{
+              duration: 1.45,
+              times: [0, 0.42, 1],
+              ease: [0.76, 0, 0.24, 1],
+            }}
+            className="relative overflow-hidden border border-[#050511] bg-[#fffcf0]"
+          >
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.05, delay: 1.1, ease: [0.76, 0, 0.24, 1] }}
+              className="absolute inset-y-0 left-0 w-full origin-left bg-[#050511]"
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
 
       <header className="absolute left-0 top-0 z-40 grid w-full grid-cols-3 items-start px-5 py-7 text-[11px] font-medium md:px-7">
         <button
