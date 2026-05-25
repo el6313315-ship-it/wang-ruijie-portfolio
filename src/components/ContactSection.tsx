@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import React, { useState } from "react";
 import { Mail, Phone, ArrowUpRight, Copy, CheckCircle2, MessageSquare, Download } from "lucide-react";
+import { PixelWord } from "./PixelText";
 
 export default function ContactSection() {
   const [copiedField, setCopiedField] = useState<string | null>(null);
@@ -58,7 +59,7 @@ export default function ContactSection() {
             <div>
               <h2 className="font-sans font-black text-5xl sm:text-7xl md:text-8xl text-brand uppercase tracking-normal leading-none mb-10">
                 GET IN <br />
-                <span className="text-brand">TOUCH</span>
+                <PixelWord text="TOUCH" className="text-brand" />
               </h2>
 
               {/* Direct Contact copy blocks */}

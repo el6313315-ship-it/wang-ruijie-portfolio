@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Bot, Boxes, FileText, Workflow } from "lucide-react";
+import { PixelWord } from "./PixelText";
 
 export default function AboutAndSkillsSection() {
   const education = [
@@ -76,7 +77,7 @@ export default function AboutAndSkillsSection() {
               </span>
             </div>
             <h2 className="font-display font-black text-5xl sm:text-7xl md:text-8xl text-brand uppercase tracking-normal leading-none">
-              ABOUT & SKILLS
+              <PixelWord text="ABOUT" /> & SKILLS
             </h2>
           </div>
         </motion.div>

@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { PixelWord } from "./PixelText";
 
 export default function WorkSection() {
   const projects = [
@@ -51,7 +52,7 @@ export default function WorkSection() {
               </span>
             </div>
             <h2 className="font-display font-black text-5xl sm:text-7xl md:text-8xl text-brand uppercase tracking-normal leading-none">
-              PROJECTS
+              <PixelWord text="PROJECTS" />
             </h2>
           </div>
         </div>

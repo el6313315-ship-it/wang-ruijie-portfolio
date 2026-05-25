@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { PixelMark, PixelWord } from "./PixelText";
 
 interface HeroSectionProps {
   onNavClick: (sectId: string) => void;
@@ -15,22 +16,10 @@ const navItems = [
 
 const serviceWords = ["Strategy", "AI Product", "Prototype", "Research", "Launch"];
 
-function PixelMark() {
-  return (
-    <span className="pixel-mark" aria-hidden="true">
-      <span />
-      <span />
-      <span />
-      <span />
-      <span />
-    </span>
-  );
-}
-
 function MarqueeRow() {
   const content = serviceWords.map((word) => (
     <span className="hero-marquee-item" key={word}>
-      {word}
+      <PixelWord text={word} />
       <PixelMark />
     </span>
   ));

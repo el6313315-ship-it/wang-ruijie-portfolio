@@ -284,6 +284,10 @@ textarea:focus-visible {
   background: transparent;
 }
 
+.pixel-letter span:nth-child(3) {
+  background: transparent;
+}
+
 .hero-marquee {
   width: 100%;
   overflow: hidden;
